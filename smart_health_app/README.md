@@ -1,94 +1,83 @@
 # Sanctuary Health
 
-Sanctuary Health is a Flutter health companion app built for the mobile programming course project. It includes authentication, medication tracking, daily reminders, hydration tracking, activity logging, profile management, barcode scanning, nearby pharmacy/hospital lookup, and privacy/data controls.
+Bu klasör, Sanctuary Health Flutter uygulamasının ana kaynak kodlarını içerir.
 
-## Features
-
-- Firebase Authentication sign in, registration, password reset, and sign out
-- Firestore sync for profile, medications, medication logs, and activity data
-- Local data storage with SQLite on mobile/desktop and local storage on web
-- Medication reminders with local notifications
-- Date-based medication completion tracking
-- Google Places nearby pharmacy/hospital search
-- Google Static Maps marker preview
-- Device location access
-- Barcode scanner screen
-- Activity and hydration tracking
-- Privacy & Data screen for local data clearing and account deletion
-
-## Project Structure
+## Klasör İçeriği
 
 ```text
-sarpmobile/
-  smart_health_app/      Flutter application
-  dashboard/             Design prototype
-  health_map/            Design prototype
-  login_register/        Design prototype
-  medications/           Design prototype
-  profile/               Design prototype
-  splash_screen/         Design prototype
+lib/                 Dart kaynak kodları
+android/             Android proje dosyaları
+ios/                 iOS proje dosyaları
+web/                 Web proje dosyaları
+test/                Widget testleri
+pubspec.yaml         Flutter bağımlılıkları
 ```
 
-## Requirements
+## Uygulama Özellikleri
 
-- Flutter SDK
-- Firebase project
-- Google Maps Platform API key
-- Enabled Firebase Authentication Email/Password provider
-- Enabled Firestore Database
-- Enabled Google APIs:
-  - Places API or Places API (New)
-  - Maps Static API
+- Firebase Authentication ile giriş, kayıt ve şifre sıfırlama
+- Firestore ile kullanıcı bazlı veri senkronizasyonu
+- SQLite ve SharedPreferences ile yerel veri saklama
+- İlaç ekleme, listeleme ve günlük tamamlandı takibi
+- Bildirim ile ilaç hatırlatma
+- Google Places ile yakındaki eczane/hastane arama
+- Google Static Maps ile harita önizlemesi
+- Konum erişimi
+- Barkod tarama ekranı
+- Aktivite, su ve profil takibi
+- Privacy & Data ekranı
 
-## Setup
-
-Install packages:
+## Kurulum
 
 ```bash
-cd C:\Users\Baris\Desktop\sarpmobile\smart_health_app
 flutter pub get
 ```
 
-Confirm these Firebase files exist:
+## API Key ile Çalıştırma
 
-```text
-lib/firebase_options.dart
-android/app/google-services.json
-```
+Harita ve yakındaki sağlık noktaları ekranı için Google Maps API key gerekir.
 
-## Run With Google Maps API Key
-
-The app reads the Google key from `GOOGLE_MAPS_API_KEY`. Do not hard-code the key into source files.
-
-Run on Chrome:
+Chrome için:
 
 ```bash
 flutter run -d chrome --dart-define=GOOGLE_MAPS_API_KEY=YOUR_GOOGLE_MAPS_API_KEY
 ```
 
-Run on a connected Android device:
+Android için:
 
 ```bash
 flutter run -d android --dart-define=GOOGLE_MAPS_API_KEY=YOUR_GOOGLE_MAPS_API_KEY
 ```
 
-Run on Windows:
+Windows için:
 
 ```bash
 flutter run -d windows --dart-define=GOOGLE_MAPS_API_KEY=YOUR_GOOGLE_MAPS_API_KEY
 ```
 
-If the map screen says the API key is missing or the map cannot be loaded, check:
+## Google Cloud Gereksinimleri
 
-- The app was started with `--dart-define=GOOGLE_MAPS_API_KEY=...`
-- Places API / Places API (New) is enabled
-- Maps Static API is enabled
-- API key restrictions allow the selected APIs
-- Web referrers include `http://localhost:*` and `http://127.0.0.1:*`
+Google Cloud Console üzerinde şu API'ler açık olmalıdır:
 
-## Firebase Rules
+- Places API veya Places API (New)
+- Maps Static API
 
-Use Firestore rules that only allow users to access their own data:
+Web testleri için API key referrer kısıtlarına şunları ekleyin:
+
+```text
+http://localhost:*
+http://127.0.0.1:*
+```
+
+## Firebase Gereksinimleri
+
+Firebase üzerinde:
+
+- Authentication > Email/Password aktif olmalı
+- Firestore Database oluşturulmalı
+- Firestore Rules kullanıcı bazlı erişime göre ayarlanmalı
+
+Önerilen Firestore Rules:
 
 ```js
 rules_version = '2';
@@ -103,30 +92,14 @@ service cloud.firestore {
 }
 ```
 
-## Quality Checks
-
-Run:
+## Test ve Analiz
 
 ```bash
 flutter analyze --no-pub
 flutter test test\widget_test.dart --no-pub
 ```
 
-Latest local verification:
+Son doğrulama:
 
-- `flutter analyze --no-pub`: passed
-- `flutter test test\widget_test.dart --no-pub`: passed
-
-## GitHub
-
-Repository:
-
-```text
-https://github.com/sarpsolaklar/sarpmobile
-```
-
-## Notes
-
-- Android release signing is not configured with a private release keystore yet.
-- The Google Maps key should be restricted in Google Cloud Console.
-- For production, Places API calls should ideally move behind a backend or Firebase Cloud Function.
+- `flutter analyze --no-pub`: başarılı
+- `flutter test test\widget_test.dart --no-pub`: başarılı
