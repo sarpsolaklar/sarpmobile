@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nearby Pharmacies and Hospitals - Health Map</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#974800",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#9df898",
+                        "surface-container-high": "#e4e9ed",
+                        "on-secondary-fixed-variant": "#005312",
+                        "inverse-primary": "#a9c7ff",
+                        "surface-container-highest": "#dfe3e7",
+                        "on-tertiary-fixed": "#311300",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d6dade",
+                        "inverse-surface": "#2c3134",
+                        "tertiary-fixed-dim": "#ffb688",
+                        "on-secondary-container": "#1a7425",
+                        "tertiary": "#733500",
+                        "on-surface-variant": "#414751",
+                        "on-error": "#ffffff",
+                        "on-background": "#171c1f",
+                        "outline": "#717782",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#001b3d",
+                        "surface-bright": "#f6fafe",
+                        "outline-variant": "#c1c7d3",
+                        "on-primary-container": "#c6d9ff",
+                        "primary-container": "#005db6",
+                        "on-secondary-fixed": "#002204",
+                        "secondary-fixed": "#9df898",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#005db6",
+                        "surface-variant": "#dfe3e7",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "on-tertiary-fixed-variant": "#733500",
+                        "surface-container": "#eaeef2",
+                        "on-tertiary-container": "#ffceb1",
+                        "secondary": "#106d20",
+                        "surface-container-low": "#f0f4f8",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#edf1f5",
+                        "surface": "#f6fafe",
+                        "primary-fixed": "#d6e3ff",
+                        "on-surface": "#171c1f",
+                        "tertiary-fixed": "#ffdbc7",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#00468c",
+                        "background": "#f6fafe",
+                        "primary": "#00468b",
+                        "secondary-fixed-dim": "#82db7e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+        
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface h-screen w-full overflow-hidden flex flex-col relative">
+<!-- TopAppBar -->
+<header class="bg-[#f6fafe]/70 dark:bg-slate-900/70 backdrop-blur-2xl text-[#0060A9] dark:text-blue-400 font-['Manrope'] font-bold tracking-tight text-on-surface docked full-width top-0 sticky z-50 no-border shadow-none bg-surface-container-lowest/70 shadow-[0_4px_30px_rgba(0,0,0,0.03)] flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<button class="p-2 -ml-2 rounded-full hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors active:scale-95 duration-200 ease-in-out text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined" data-icon="clinical_notes">clinical_notes</span>
+</button>
+<span class="text-xl font-extrabold tracking-tighter text-[#0060A9] dark:text-blue-400">Sanctuary Health</span>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high border-2 border-surface">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="Portrait of a smiling user with short brown hair against a light background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvDvCmW9ii64qFfposCQfor08UOuPbjC0P_FMGnuY9mVVEnGrnLYa6JnjZR7IzQoaetRS-vgJelAMBzbwz9IFdOyd4-RddZialvcfB-1jzb4SFs2N7K-JfRKsie_6gRq33bxYA8xP0D8JEP5V_32KtvizByt3r0fQtjDCryCZ_xqFbj9GNi3dP2-56Ji_v6L2RoIxuzHkfIhRIn7ZpctjddljQcj3WV0QAg1sAioLhoMCFM8_1-m5GjCdOZROwBnZWvKjPC1__Ilgj"/>
+</div>
+</header>
+<!-- Main Map Canvas -->
+<main class="flex-1 relative w-full h-full">
+<!-- Map Background -->
+<div class="absolute inset-0 w-full h-full bg-surface-container-low">
+<img alt="Map View" class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="Stylized top-down view of a city map with subtle roads and blue waterways in a clean modern aesthetic" data-location="Seattle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQUGAnG0f3jRBLr1kEyT2ZkQpgXG7_DDuUo42gkA_wt2bPrgXMcjg1Ax7IzYGQ_8iYDula_Sb0aAnV3LzZUgmEHOI3NQWVEYe_uoBSCTtp1URTPh6caG2F9UVbMoWTTokqCrmGNmodWAZAJCfMqQYKy8SlXaQLZXDYpkLuHXd2eWNgLnpwbI9Gh0KHlg6UgjedaHFxgLoKsSJUULCPFlpn4XxNFR59YCS9xwyGMscHqhrAnncqpfyOSneNJG_iOotmI5_EwPHrTUaW"/>
+</div>
+<!-- Search & Filter Overlay -->
+<div class="absolute top-4 left-4 right-4 z-10 flex flex-col gap-3">
+<!-- Search Bar -->
+<div class="bg-surface-container-lowest/90 backdrop-blur-md rounded-full px-5 py-3 shadow-[0_8px_24px_rgba(0,70,139,0.08)] flex items-center gap-3 w-full max-w-md mx-auto">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface w-full font-body placeholder:text-outline font-medium" placeholder="Search near you..." type="text"/>
+<button class="p-1 text-primary hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide px-2 max-w-md mx-auto w-full">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-xl font-label text-sm font-semibold whitespace-nowrap shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="local_pharmacy">local_pharmacy</span>
+                    Pharmacy
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest text-on-surface-variant rounded-xl font-label text-sm font-medium whitespace-nowrap shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-outline-variant/20 hover:bg-surface-container-low transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[18px]" data-icon="local_hospital">local_hospital</span>
+                    Hospital
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest text-on-surface-variant rounded-xl font-label text-sm font-medium whitespace-nowrap shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-outline-variant/20 hover:bg-surface-container-low transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[18px]" data-icon="vital_signs">vital_signs</span>
+                    Urgent Care
+                </button>
+</div>
+</div>
+<!-- Map Markers (Simulated) -->
+<button class="absolute top-1/3 left-1/4 bg-white p-2 rounded-full shadow-lg border-2 border-primary group hover:scale-110 transition-transform z-10 active:scale-95">
+<div class="bg-primary text-white p-1 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="local_pharmacy">local_pharmacy</span>
+</div>
+<!-- Tooltip -->
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-surface-container-lowest px-3 py-1 rounded-lg text-xs font-bold text-on-surface whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-md pointer-events-none">
+                CVS Pharmacy
+            </div>
+</button>
+<button class="absolute top-1/2 right-1/3 bg-white p-2 rounded-full shadow-lg border-2 border-outline-variant/50 z-10 opacity-70 hover:opacity-100 hover:scale-110 transition-all">
+<div class="bg-surface-variant text-on-surface-variant p-1 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="local_hospital">local_hospital</span>
+</div>
+</button>
+<!-- Current Location Marker -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
+<div class="w-12 h-12 bg-primary/20 rounded-full animate-pulse absolute -inset-3"></div>
+<div class="w-6 h-6 bg-white rounded-full shadow-lg border-2 border-primary flex items-center justify-center relative">
+<div class="w-2.5 h-2.5 bg-primary rounded-full"></div>
+</div>
+</div>
+<!-- Bottom Sheet Details Panel -->
+<div class="absolute bottom-[88px] left-0 w-full z-20 px-4 md:px-8 md:max-w-md md:left-1/2 md:-translate-x-1/2 pb-6">
+<div class="bg-surface-container-lowest rounded-3xl p-5 shadow-[0_-12px_40px_rgba(0,70,139,0.08)] border border-outline-variant/10">
+<!-- Drag Handle -->
+<div class="w-12 h-1.5 bg-surface-variant rounded-full mx-auto mb-4"></div>
+<div class="flex justify-between items-start mb-3">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 bg-primary-container text-on-primary-container rounded-md text-[10px] font-bold uppercase tracking-wider">Nearest</span>
+<span class="text-xs font-medium text-secondary">Open Now</span>
+</div>
+<h2 class="text-xl font-headline font-bold text-on-surface tracking-tight">CVS Pharmacy</h2>
+<p class="text-sm text-on-surface-variant font-body mt-0.5">1.2 miles • 10 min drive</p>
+</div>
+<button class="bg-surface-container rounded-full p-2 text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="directions">directions</span>
+</button>
+</div>
+<div class="h-px w-full bg-surface-container my-4"></div>
+<div class="flex justify-around">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+<span class="text-xs font-medium">Call</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+<span class="text-xs font-medium">Details</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="text-xs font-medium">Save</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-2xl text-[#0060A9] dark:text-blue-400 font-['Inter'] font-medium text-[11px] tracking-wide fixed bottom-0 w-full rounded-t-[32px] tonal-transition-no-border shadow-[0_-8px_40px_rgba(0,96,169,0.08)] flex justify-around items-center px-4 pb-6 pt-3 z-50 md:hidden">
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-2 hover:text-[#0060A9] dark:hover:text-blue-300 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1" data-icon="home_health">home_health</span>
+            Home
+        </button>
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-2 hover:text-[#0060A9] dark:hover:text-blue-300 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1" data-icon="medication">medication</span>
+            Meds
+        </button>
+<button class="flex flex-col items-center justify-center bg-[#0060A9] text-white rounded-2xl px-5 py-2 scale-105 shadow-lg shadow-blue-200 dark:shadow-none hover:text-[#0060A9] dark:hover:text-blue-300 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1 fill" data-icon="distance" data-weight="fill">distance</span>
+            Map
+        </button>
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-2 hover:text-[#0060A9] dark:hover:text-blue-300 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+            Profile
+        </button>
+</nav>
+</body></html>

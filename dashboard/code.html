@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sanctuary Health - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#974800",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#9df898",
+                        "surface-container-high": "#e4e9ed",
+                        "on-secondary-fixed-variant": "#005312",
+                        "inverse-primary": "#a9c7ff",
+                        "surface-container-highest": "#dfe3e7",
+                        "on-tertiary-fixed": "#311300",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d6dade",
+                        "inverse-surface": "#2c3134",
+                        "tertiary-fixed-dim": "#ffb688",
+                        "on-secondary-container": "#1a7425",
+                        "tertiary": "#733500",
+                        "on-surface-variant": "#414751",
+                        "on-error": "#ffffff",
+                        "on-background": "#171c1f",
+                        "outline": "#717782",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#001b3d",
+                        "surface-bright": "#f6fafe",
+                        "outline-variant": "#c1c7d3",
+                        "on-primary-container": "#c6d9ff",
+                        "primary-container": "#005db6",
+                        "on-secondary-fixed": "#002204",
+                        "secondary-fixed": "#9df898",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#005db6",
+                        "surface-variant": "#dfe3e7",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "on-tertiary-fixed-variant": "#733500",
+                        "surface-container": "#eaeef2",
+                        "on-tertiary-container": "#ffceb1",
+                        "secondary": "#106d20",
+                        "surface-container-low": "#f0f4f8",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#edf1f5",
+                        "surface": "#f6fafe",
+                        "primary-fixed": "#d6e3ff",
+                        "on-surface": "#171c1f",
+                        "tertiary-fixed": "#ffdbc7",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#00468c",
+                        "background": "#f6fafe",
+                        "primary": "#00468b",
+                        "secondary-fixed-dim": "#82db7e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col pb-24">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 sticky z-50 no-border shadow-none bg-surface-container-lowest/70 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.03)] flex justify-between items-center px-6 py-4 w-full md:hidden">
+<div class="flex items-center gap-3 text-[#0060A9] dark:text-blue-400">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">clinical_notes</span>
+<span class="font-['Manrope'] font-bold tracking-tight text-on-surface text-xl font-extrabold tracking-tighter text-[#0060A9] dark:text-blue-400">Sanctuary Health</span>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high border-2 border-outline-variant/20">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="close up portrait of a smiling woman with clear skin and natural light on a soft white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeYJuoMoeKjSiiOcH9uX4TxHVc8u5ohQHs_z1WZLHZctw99lop5thKNFinOkSZjqYemL0qQJMEg-C0iarcHpMspoVstUvTOYGg2qtNBz9CHm_TXYuODbMtrkpllT9mWX2bD8ckWb4mHXr23W5Q-WVyq4c5iEzluIUamebv4S0lVPWAwYB4KVXeHNH0RAFEfXPLDiqpILOgeag3TTGQ66noGfExJyZuqDnSh8CsUVQL28TRNlpCVKs_dZwbD5I1ZA0ry-kPFYiLO5tK"/>
+</div>
+</header>
+<!-- TopAppBar (Web) -->
+<header class="hidden md:flex docked full-width top-0 sticky z-50 no-border shadow-none bg-surface-container-lowest/70 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.03)] justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3 text-[#0060A9] dark:text-blue-400">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">clinical_notes</span>
+<span class="font-['Manrope'] font-bold tracking-tight text-on-surface text-xl font-extrabold tracking-tighter text-[#0060A9] dark:text-blue-400">Sanctuary Health</span>
+</div>
+<nav class="flex gap-6">
+<a class="text-[#0060A9] font-bold font-['Inter'] font-medium text-[15px] tracking-wide flex items-center gap-2 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors px-4 py-2 rounded-xl active:scale-95 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">home_health</span> Home
+            </a>
+<a class="text-slate-500 dark:text-slate-400 font-['Inter'] font-medium text-[15px] tracking-wide flex items-center gap-2 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors px-4 py-2 rounded-xl active:scale-95 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">medication</span> Meds
+            </a>
+<a class="text-slate-500 dark:text-slate-400 font-['Inter'] font-medium text-[15px] tracking-wide flex items-center gap-2 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors px-4 py-2 rounded-xl active:scale-95 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">distance</span> Map
+            </a>
+<a class="text-slate-500 dark:text-slate-400 font-['Inter'] font-medium text-[15px] tracking-wide flex items-center gap-2 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors px-4 py-2 rounded-xl active:scale-95 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">person</span> Profile
+            </a>
+</nav>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high border-2 border-outline-variant/20">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="close up portrait of a smiling woman with clear skin and natural light on a soft white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA905nXZkimOkXj7iHTY0tEPqtQ9KiP-GYZzNptPyfq_z7l3SCxblnHfubKOKSnRwxjGPRM_v7LzmRtMQQOjPPDrsipSidfABm3j8o4pLp4dkBWGy0B1eq7FYPbhv35Jy7x6cvYfx7HPokw-spu1GJxfcCzr4aFIPaeXQGRUTBFz8O55KG8rPHP_aNoWPKz7SihG_NavT97aKn_DESOwLqip8DyLynKyX79Dz4NuMm2-Bug_jSYdHQmCx-eDdv8IqdrfokKLGaPyvg0"/>
+</div>
+</header>
+<main class="flex-1 max-w-5xl mx-auto w-full px-6 py-8 flex flex-col gap-8">
+<!-- Welcome Section -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h1 class="text-4xl font-extrabold text-on-surface tracking-tight mb-2">Good morning, Sarah.</h1>
+<p class="text-on-surface-variant font-medium text-lg">Here is your daily health summary.</p>
+</div>
+<button class="bg-primary text-on-primary rounded-xl px-6 py-3 font-medium flex items-center gap-2 hover:bg-opacity-90 transition-all active:scale-95 shadow-[0_12px_40px_rgba(23,28,31,0.06)] bg-gradient-to-br from-primary to-primary-container">
+<span class="material-symbols-outlined">add</span>
+                Log Reading
+            </button>
+</section>
+<!-- Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Water Intake (Circular Progress) - Spans 4 cols -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-[32px] p-8 flex flex-col items-center justify-center relative overflow-hidden shadow-[0_12px_40px_rgba(23,28,31,0.06)] border border-outline-variant/20">
+<div class="absolute top-0 right-0 p-6 opacity-10">
+<span class="material-symbols-outlined text-6xl text-primary" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</div>
+<h2 class="text-xl font-bold text-on-surface w-full text-left mb-6">Hydration</h2>
+<div class="relative w-48 h-48 flex items-center justify-center">
+<!-- SVG Circle -->
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle class="text-surface-container" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary transition-all duration-1000 ease-out" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-dasharray="282.7" stroke-dashoffset="141.35" stroke-width="8"></circle>
+</svg>
+<!-- Center Content -->
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-primary mb-1" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<span class="text-3xl font-extrabold text-on-surface tracking-tight">1.2<span class="text-xl text-on-surface-variant font-medium">L</span></span>
+<span class="text-sm text-on-surface-variant mt-1">of 2.5L goal</span>
+</div>
+</div>
+<div class="w-full flex justify-between mt-8 text-sm font-medium">
+<span class="text-on-surface-variant">48% Daily Goal</span>
+<button class="text-primary hover:text-primary-container transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">add_circle</span> Add
+                    </button>
+</div>
+</div>
+<!-- Daily Medications - Spans 8 cols -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-[32px] p-8 shadow-[0_12px_40px_rgba(23,28,31,0.06)] border border-outline-variant/20 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">medication</span>
+                        Daily Medications
+                    </h2>
+<button class="text-primary font-medium hover:underline text-sm">See Schedule</button>
+</div>
+<div class="flex flex-col gap-4 flex-1">
+<!-- Med Item 1 -->
+<div class="bg-surface-container-low rounded-2xl p-5 flex items-center justify-between group hover:bg-surface-container transition-colors cursor-pointer border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pill</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-on-surface">Lisinopril</h3>
+<p class="text-on-surface-variant text-sm">10mg • After breakfast</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-right hidden sm:block">
+<p class="text-on-surface font-semibold">08:00 AM</p>
+<p class="text-tertiary text-xs font-medium">Overdue</p>
+</div>
+<button class="w-10 h-10 rounded-full border-2 border-outline-variant flex items-center justify-center text-outline-variant hover:bg-secondary hover:border-secondary hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined text-xl">check</span>
+</button>
+</div>
+</div>
+<!-- Med Item 2 -->
+<div class="bg-surface-container-low rounded-2xl p-5 flex items-center justify-between group hover:bg-surface-container transition-colors cursor-pointer border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">prescriptions</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-on-surface">Atorvastatin</h3>
+<p class="text-on-surface-variant text-sm">20mg • With dinner</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-right hidden sm:block">
+<p class="text-on-surface font-semibold">07:00 PM</p>
+<p class="text-on-surface-variant text-xs font-medium">Upcoming</p>
+</div>
+<button class="w-10 h-10 rounded-full border-2 border-outline-variant flex items-center justify-center text-outline-variant hover:bg-secondary hover:border-secondary hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined text-xl">check</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Reminders - Spans 6 cols -->
+<div class="md:col-span-6 bg-surface-container-lowest rounded-[32px] p-8 shadow-[0_12px_40px_rgba(23,28,31,0.06)] border border-outline-variant/20 relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-32 h-32 bg-primary-fixed opacity-50 rounded-full blur-3xl"></div>
+<h2 class="text-xl font-bold text-on-surface mb-6 flex items-center gap-2 relative z-10">
+<span class="material-symbols-outlined text-tertiary">notifications_active</span>
+                    Active Reminders
+                </h2>
+<div class="space-y-4 relative z-10">
+<div class="flex items-start gap-3">
+<div class="w-2 h-2 mt-2 rounded-full bg-tertiary flex-shrink-0"></div>
+<div>
+<p class="text-on-surface font-semibold">Blood Pressure Check</p>
+<p class="text-on-surface-variant text-sm mt-1">Please log your evening reading before 8 PM to maintain your streak.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-2 h-2 mt-2 rounded-full bg-primary flex-shrink-0"></div>
+<div>
+<p class="text-on-surface font-semibold">Refill Prescription</p>
+<p class="text-on-surface-variant text-sm mt-1">Lisinopril is running low. Contact Dr. Smith's office.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Daily Health Tip - Spans 6 cols -->
+<div class="md:col-span-6 bg-surface-bright rounded-[32px] p-8 shadow-[0_12px_40px_rgba(23,28,31,0.06)] border border-outline-variant/20 flex flex-col justify-between">
+<h2 class="text-xl font-bold text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">lightbulb</span>
+                    Daily Health Tip
+                </h2>
+<div class="flex-1 flex flex-col justify-center">
+<blockquote class="text-lg font-medium text-on-surface leading-relaxed italic">
+                        "Taking a 15-minute walk after meals can significantly help manage blood sugar levels and improve digestion."
+                    </blockquote>
+<div class="mt-6 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">directions_walk</span>
+</div>
+<span class="text-sm font-semibold text-secondary">Wellness Retreat</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-950/80 backdrop-blur-2xl rounded-t-[32px] tonal-transition-no-border shadow-[0_-8px_40px_rgba(0,96,169,0.08)]">
+<a class="flex flex-col items-center justify-center bg-[#0060A9] text-white rounded-2xl px-5 py-2 scale-105 shadow-lg shadow-blue-200 dark:shadow-none hover:text-[#0060A9] dark:hover:text-blue-300 transition-all active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home_health</span>
+<span class="font-['Inter'] font-medium text-[11px] tracking-wide mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-2 hover:text-[#0060A9] dark:hover:text-blue-300 transition-all active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">medication</span>
+<span class="font-['Inter'] font-medium text-[11px] tracking-wide mt-1">Meds</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-2 hover:text-[#0060A9] dark:hover:text-blue-300 transition-all active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">distance</span>
+<span class="font-['Inter'] font-medium text-[11px] tracking-wide mt-1">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-2 hover:text-[#0060A9] dark:hover:text-blue-300 transition-all active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] font-medium text-[11px] tracking-wide mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

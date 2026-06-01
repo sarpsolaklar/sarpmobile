@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sanctuary Health - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#974800",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#9df898",
+                        "surface-container-high": "#e4e9ed",
+                        "on-secondary-fixed-variant": "#005312",
+                        "inverse-primary": "#a9c7ff",
+                        "surface-container-highest": "#dfe3e7",
+                        "on-tertiary-fixed": "#311300",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d6dade",
+                        "inverse-surface": "#2c3134",
+                        "tertiary-fixed-dim": "#ffb688",
+                        "on-secondary-container": "#1a7425",
+                        "tertiary": "#733500",
+                        "on-surface-variant": "#414751",
+                        "on-error": "#ffffff",
+                        "on-background": "#171c1f",
+                        "outline": "#717782",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#001b3d",
+                        "surface-bright": "#f6fafe",
+                        "outline-variant": "#c1c7d3",
+                        "on-primary-container": "#c6d9ff",
+                        "primary-container": "#005db6",
+                        "on-secondary-fixed": "#002204",
+                        "secondary-fixed": "#9df898",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#005db6",
+                        "surface-variant": "#dfe3e7",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "on-tertiary-fixed-variant": "#733500",
+                        "surface-container": "#eaeef2",
+                        "on-tertiary-container": "#ffceb1",
+                        "secondary": "#106d20",
+                        "surface-container-low": "#f0f4f8",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#edf1f5",
+                        "surface": "#f6fafe",
+                        "primary-fixed": "#d6e3ff",
+                        "on-surface": "#171c1f",
+                        "tertiary-fixed": "#ffdbc7",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#00468c",
+                        "background": "#f6fafe",
+                        "primary": "#00468b",
+                        "secondary-fixed-dim": "#82db7e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Manrope", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom Checkbox to avoid default styles */
+        .custom-checkbox:checked + div {
+            background-color: theme('colors.primary');
+            border-color: theme('colors.primary');
+        }
+        .custom-checkbox:checked + div svg {
+            display: block;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen flex w-full">
+<!-- Left Pane: Branding & Aspirational Imagery (Hidden on Mobile) -->
+<div class="hidden lg:flex w-1/2 relative flex-col justify-between p-12 overflow-hidden bg-surface-container-lowest">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="serene woman practicing yoga in a bright, sunlit minimalist room with large windows and lush green plants, conveying wellness and tranquility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXmUbX7h5wkK5CgNGwlzMQZU5hqMeLoCGrs07y2fTJK_pqFKGBTby9YaTd5rcHDT-P1tI2ustBMNQGEFICAVC9f0yBDQbAzlLGuHYxOURbtkx5eMehirnSytxY723nw6Uz0m_PpO0pZ7vTJJ3v7BJZQHDXcWhUqf0jiZF02j4xZKpMyVtEWLZUvQWNf8_gB1QohXrkywwTUcRO1r3M5wQ7OFEHq1bJy17uNtnNDnaO-3fs-23o1dGd8PqDeB8WHHvJviGiXAUORQ4J"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent mix-blend-multiply"></div>
+<!-- Subtle noise texture for premium feel -->
+<div class="absolute inset-0 opacity-[0.03] mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
+</div>
+<!-- Branding Header -->
+<div class="relative z-10 flex items-center gap-3 text-on-primary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">clinical_notes</span>
+<span class="font-headline font-extrabold text-2xl tracking-tight">Sanctuary Health</span>
+</div>
+<!-- Aspirational Text -->
+<div class="relative z-10 max-w-lg">
+<h1 class="font-headline font-bold text-4xl leading-tight text-on-primary mb-4 tracking-tight">
+                Your journey to proactive vitality starts here.
+            </h1>
+<p class="text-on-primary-container text-lg font-body max-w-md">
+                Access your personalized care plans, connect with specialists, and track your wellness seamlessly in one secure environment.
+            </p>
+</div>
+</div>
+<!-- Right Pane: Login Form -->
+<div class="flex-1 flex items-center justify-center p-6 sm:p-12 lg:p-24 bg-surface w-full relative z-10">
+<!-- Mobile Header (Visible only on small screens) -->
+<div class="absolute top-8 left-6 sm:left-12 flex lg:hidden items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">clinical_notes</span>
+<span class="font-headline font-bold text-xl tracking-tight">Sanctuary Health</span>
+</div>
+<div class="w-full max-w-md flex flex-col mt-12 lg:mt-0">
+<div class="mb-10">
+<h2 class="font-headline font-bold text-3xl sm:text-4xl text-on-surface mb-2 tracking-tight">Welcome back</h2>
+<p class="text-on-surface-variant font-body text-base">Please enter your details to sign in.</p>
+</div>
+<form class="flex flex-col gap-6">
+<!-- Email Field -->
+<div class="flex flex-col gap-2">
+<label class="font-label text-sm font-medium text-on-surface-variant" for="email">Email</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none">mail</span>
+<input class="w-full pl-12 pr-4 py-3.5 bg-surface-container-low text-on-surface rounded-md border-none focus:ring-0 focus:outline focus:outline-2 focus:outline-primary transition-all placeholder:text-outline-variant/70 font-body" id="email" name="email" placeholder="Enter your email" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-2">
+<label class="font-label text-sm font-medium text-on-surface-variant" for="password">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none">lock</span>
+<input class="w-full pl-12 pr-4 py-3.5 bg-surface-container-low text-on-surface rounded-md border-none focus:ring-0 focus:outline focus:outline-2 focus:outline-primary transition-all placeholder:text-outline-variant/70 font-body" id="password" name="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Options Row -->
+<div class="flex items-center justify-between mt-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<div class="relative flex items-center justify-center w-5 h-5">
+<input class="custom-checkbox absolute opacity-0 w-full h-full cursor-pointer z-10" type="checkbox"/>
+<div class="w-5 h-5 border-2 border-outline-variant rounded bg-surface transition-colors duration-200 flex items-center justify-center group-hover:border-primary/50">
+<svg class="w-3 h-3 text-on-primary hidden pointer-events-none" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+</div>
+<span class="text-sm font-medium text-on-surface-variant select-none">Remember for 30 days</span>
+</label>
+<a class="text-sm font-medium text-primary hover:text-primary-container transition-colors" href="#">Forgot password?</a>
+</div>
+<!-- Primary Action -->
+<button class="mt-4 w-full bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-xl py-4 px-6 font-body font-medium text-base hover:opacity-90 active:scale-[0.98] transition-all duration-200 shadow-[0_12px_40px_rgba(0,70,139,0.2)] flex items-center justify-center gap-2 relative overflow-hidden group" type="button">
+<span class="relative z-10">Sign In</span>
+<!-- Hover overlay to satisfy the 10% on-surface rule without breaking gradient -->
+<div class="absolute inset-0 bg-on-surface opacity-0 group-hover:opacity-10 transition-opacity duration-200"></div>
+</button>
+</form>
+<!-- Divider -->
+<div class="flex items-center gap-4 my-8">
+<div class="h-px flex-1 bg-outline-variant/40"></div>
+<span class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Or continue with</span>
+<div class="h-px flex-1 bg-outline-variant/40"></div>
+</div>
+<!-- Social Login -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-3 bg-surface-container-lowest text-on-surface rounded-xl py-3.5 px-4 font-body font-medium text-sm shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:bg-surface-container-low active:scale-[0.98] transition-all duration-200 border border-outline-variant/20" type="button">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMyGKAbnqeANbJt0t4DIonyLBuZwO2QR7XlgEN7Ch-u3-mu8nk8XGVyFyV1-G8EaQSWXKjoUYHmtC8pscVRoUV_ztGfyX7YGNh2JyPs853HrEbAY2xmvbbbhQ5zZ-kWlkCt-rcMC8O7m-4RLM6tywUqQzdDRsXq9xEk421y2K5983hELY9C7E0QnR8EPBBMaOX5NF_GBosB4YgxQGMq8gFOZ9wFIsqI2MZCtibgnmk8Av2v2bk2TEKeCYEWif1Bn7rXI1-fetR5t6n"/>
+                    Google
+                </button>
+<button class="flex items-center justify-center gap-3 bg-surface-container-lowest text-on-surface rounded-xl py-3.5 px-4 font-body font-medium text-sm shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:bg-surface-container-low active:scale-[0.98] transition-all duration-200 border border-outline-variant/20" type="button">
+<img alt="Apple" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvQyYiT1OdL75QmSb2a3XSZBqcVpRO9neTRa2nuc1kUvbjrHb6NCh0qwrn02JZGYr9RRVRqEiqbD7E3vTdT7gg9cQ5TY99pXiasOs2Fx171-gTfyI5qagmVG4aFbGK-XkaRjYhPNMi2fpydEc5qEFbtvjGF6SOn6ptk1ShCR4j9TddwLCXp8La6h9bIqzWiezh7vL4NDjW_Hi4WNUOBOVc05vzAv4ISt4xAG0dVcQIyyy9OC_4tlRPex0vb8ztbY4Xl-mtoPOe-1oj"/>
+                    Apple
+                </button>
+</div>
+<!-- Registration Link -->
+<div class="mt-10 text-center">
+<p class="text-sm text-on-surface-variant font-body">
+                    Don't have an account? 
+                    <a class="font-semibold text-primary hover:text-primary-container transition-colors ml-1" href="#">Sign up</a>
+</p>
+</div>
+</div>
+</div>
+</body></html>

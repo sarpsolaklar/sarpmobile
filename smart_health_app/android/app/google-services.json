@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "564580712528",
+    "project_id": "smarthealth-4456d",
+    "storage_bucket": "smarthealth-4456d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564580712528:android:4744d12c513942592d9155",
+        "android_client_info": {
+          "package_name": "com.sanctuaryhealth.smart_health_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAT6GvLmvqd5fkploMXNXl6U1EOkd0lm3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
