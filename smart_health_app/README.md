@@ -1,71 +1,132 @@
 # Sanctuary Health
 
-Sanctuary Health is a Flutter health companion app for medication reminders, hydration tracking, activity logging, profile data, barcode scanning, nearby care lookup, and a health assistant screen.
+Sanctuary Health is a Flutter health companion app built for the mobile programming course project. It includes authentication, medication tracking, daily reminders, hydration tracking, activity logging, profile management, barcode scanning, nearby pharmacy/hospital lookup, and privacy/data controls.
 
-## Current Status
+## Features
 
-This project is moving from prototype to MVP. Core local flows exist, and the first production-hardening pass added:
+- Firebase Authentication sign in, registration, password reset, and sign out
+- Firestore sync for profile, medications, medication logs, and activity data
+- Local data storage with SQLite on mobile/desktop and local storage on web
+- Medication reminders with local notifications
+- Date-based medication completion tracking
+- Google Places nearby pharmacy/hospital search
+- Google Static Maps marker preview
+- Device location access
+- Barcode scanner screen
+- Activity and hydration tracking
+- Privacy & Data screen for local data clearing and account deletion
 
-- Firebase Auth backed sign in, registration, password reset, sign out, and splash-session routing.
-- Notification service initialization and Android/iOS permission declarations.
-- Date-based medication completion logs so "taken today" does not carry into the next day.
-- First-pass Firestore writes for medications, medication logs, and profile data under the signed-in user.
-- Firestore pull on sign in/dashboard load for medication, medication log, activity, and profile data.
-- Basic profile/activity validation and a Privacy & Data screen for local data clearing and account deletion.
-- Login widget smoke tests replacing the default Flutter counter test.
-- App metadata cleanup for Android and web.
+## Project Structure
+
+```text
+sarpmobile/
+  smart_health_app/      Flutter application
+  dashboard/             Design prototype
+  health_map/            Design prototype
+  login_register/        Design prototype
+  medications/           Design prototype
+  profile/               Design prototype
+  splash_screen/         Design prototype
+```
 
 ## Requirements
 
-- Flutter SDK matching `environment.sdk` in `pubspec.yaml`.
-- Firebase project configured for Android, iOS, macOS, web, and Windows.
-- Platform-specific permissions for camera, location, and notifications.
+- Flutter SDK
+- Firebase project
+- Google Maps Platform API key
+- Enabled Firebase Authentication Email/Password provider
+- Enabled Firestore Database
+- Enabled Google APIs:
+  - Places API or Places API (New)
+  - Maps Static API
 
 ## Setup
 
-1. Install dependencies:
+Install packages:
 
-   ```bash
-   flutter pub get
-   ```
+```bash
+cd C:\Users\Baris\Desktop\sarpmobile\smart_health_app
+flutter pub get
+```
 
-2. Confirm Firebase config files are present:
+Confirm these Firebase files exist:
 
-   - `lib/firebase_options.dart`
-   - `android/app/google-services.json`
-   - iOS/macOS Firebase files when those platforms are enabled
+```text
+lib/firebase_options.dart
+android/app/google-services.json
+```
 
-3. Run the app:
+## Run With Google Maps API Key
 
-   ```bash
-   flutter run
-   ```
+The app reads the Google key from `GOOGLE_MAPS_API_KEY`. Do not hard-code the key into source files.
+
+Run on Chrome:
+
+```bash
+flutter run -d chrome --dart-define=GOOGLE_MAPS_API_KEY=YOUR_GOOGLE_MAPS_API_KEY
+```
+
+Run on a connected Android device:
+
+```bash
+flutter run -d android --dart-define=GOOGLE_MAPS_API_KEY=YOUR_GOOGLE_MAPS_API_KEY
+```
+
+Run on Windows:
+
+```bash
+flutter run -d windows --dart-define=GOOGLE_MAPS_API_KEY=YOUR_GOOGLE_MAPS_API_KEY
+```
+
+If the map screen says the API key is missing or the map cannot be loaded, check:
+
+- The app was started with `--dart-define=GOOGLE_MAPS_API_KEY=...`
+- Places API / Places API (New) is enabled
+- Maps Static API is enabled
+- API key restrictions allow the selected APIs
+- Web referrers include `http://localhost:*` and `http://127.0.0.1:*`
+
+## Firebase Rules
+
+Use Firestore rules that only allow users to access their own data:
+
+```js
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId}/data/{document=**} {
+      allow read, write: if request.auth != null
+                         && request.auth.uid == userId;
+    }
+  }
+}
+```
 
 ## Quality Checks
 
-Run these before merging changes:
+Run:
 
 ```bash
-flutter analyze
-flutter test
+flutter analyze --no-pub
+flutter test test\widget_test.dart --no-pub
 ```
 
-In this workspace, both commands timed out during the first remediation pass, so the local Flutter/Dart toolchain should be checked before relying on the results.
+Latest local verification:
 
-Latest local check:
+- `flutter analyze --no-pub`: passed
+- `flutter test test\widget_test.dart --no-pub`: passed
 
-- `flutter analyze --no-pub` passes.
-- `flutter test test\widget_test.dart --no-pub` fails before running tests because the native asset hook mis-parses the local SDK/project path containing `Yuksek Lisans`.
+## GitHub
 
-## Release Notes
+Repository:
 
-Android release signing is intentionally not wired to the debug key. Configure a private release keystore before publishing.
+```text
+https://github.com/sarpsolaklar/sarpmobile
+```
 
-## Remaining High-Priority Work
+## Notes
 
-- Add full two-way Firestore sync and conflict handling per authenticated user.
-- Add conflict resolution and cloud delete tombstones for multi-device sync.
-- Replace the map placeholder with a real places/maps provider.
-- Connect barcode values to a medication data source.
-- Add CI for analyze, test, and platform builds.
-- Add localization, privacy policy, data deletion, and medical safety copy.
+- Android release signing is not configured with a private release keystore yet.
+- The Google Maps key should be restricted in Google Cloud Console.
+- For production, Places API calls should ideally move behind a backend or Firebase Cloud Function.
